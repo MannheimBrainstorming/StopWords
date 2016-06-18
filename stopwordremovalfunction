@@ -1,0 +1,16 @@
+//input: an string such as "cat"
+//output: a boolean value. 0 means the word is not a stop word. 1 means the word is a stop word.
+
+public static int StopWordsRemoval(String text) throws IOException{
+		ArrayList<String> StopWordsList = new ArrayList<String>();
+		StopWordsList = (ArrayList<String>) Files.readAllLines(Paths.get("/home/farbod/Desktop/stopwordslist.txt"));
+		int CheckStopWord =0;
+		// i must be less equal than the number of the lines in the stopwords text file.
+		for(int i=0; i<=257; i++){
+			if (new String(text).equals(StopWordsList.get(i))){
+				CheckStopWord = 1;
+			}
+		}
+		// checkstopword=0 means the word is not a stop word.
+		return CheckStopWord;
+}
